@@ -1,19 +1,36 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
+const prefix = "!jao ";
+
 client.once("ready", () => {
     console.log("Jarano is online!")
 })
 
-client.on('message', msg => {
-    if (msg.content === '/jaran tetto') {
-      msg.reply('=gay!');
+client.once("disconnect", () => {
+    console.log("Jarano is offline!")
+})
+
+client.on('message', message => {
+    if (!message.content.startsWith(prefix) || message.author.bot)
+    return;
+
+    const args = message.content.slice(prefix.length).split(/ +/)
+    const command = args.shift().toLowerCase();
+
+    if (command === "ping") {
+        message.channel.send("pong")
     }
-});
+
+    if (command === "tetto") {
+        message.channel.send("tetto är såkallat gay")
+    }
+
+    if (command === "help") {
+        message.channel.send("test")
+    }
+    
+})
 
 
-
-
-
-
-client.login("j4f8fs4hrgOH2T9i42dyjoMFAwA7Js9L");
+client.login("ODI2ODI1OTc2MjU2MTM1MjE4.YGSHsg.in9yJlWAjzvrsCud6vJgJlDqufA")
