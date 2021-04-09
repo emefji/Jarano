@@ -5,6 +5,7 @@ const prefix = "!jao ";
 
 client.once("ready", () => {
     console.log("Jarano is online!")
+    client.user.setActivity("github.com", {type: "PLAYING", url:"https://github.com/emefji/Jarano"})
 })
 
 client.once("disconnect", () => {
@@ -17,20 +18,25 @@ client.on('message', message => {
 
     const args = message.content.slice(prefix.length).split(/ +/)
     const command = args.shift().toLowerCase();
-
+    
     if (command === "ping") {
         message.channel.send("pong")
     }
 
     if (command === "tetto") {
-        message.channel.send("tetto är såkallat gay")
+        message.channel.send("times")
     }
 
     if (command === "help") {
         message.channel.send("test")
     }
+
+    if (command == "statusWATCHING") {
+        message.channel.send("yse")
+        client.user.setActivity("github.com", {type: "WATCHING", url:"https://github.com/emefji/Jarano"})
+    }
     
 })
 
 
-client.login("ODI2ODI1OTc2MjU2MTM1MjE4.YGSHsg.in9yJlWAjzvrsCud6vJgJlDqufA")
+client.login("ODI2ODI1OTc2MjU2MTM1MjE4.YGSHsg.l4x0VrlAtauZDxmbVjLj04jZtKU")
