@@ -38,5 +38,5 @@ client.on('message', message => {
     
 })
 
-
+//heroku yye
 client.login(process.env.TOKEN)
