@@ -30,10 +30,9 @@ client.on('message', message => {
     if (command === "help") {
         message.channel.send("test")
     }
-
-    if (command == "statusWATCHING") {
-        message.channel.send("yse")
-        client.user.setActivity("github.com", {type: "WATCHING", url:"https://github.com/emefji/Jarano"})
+    
+    if (command === "github") {
+        message.channel.send("https://github.com/emefji/Jarano")
     }
     
 })
