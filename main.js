@@ -18,14 +18,36 @@ client.on('message', message => {
     return;
 
     const args = message.content.slice(prefix.length).split(/ +/)
+    console.log("args: ", args)
     const command = args.shift().toLowerCase();
+    console.log("args (2): ", args)
     
     if (command === "ping") {
         message.channel.send("pong")
     }
 
+    // kolla om andra variabeln är ett nummer, om inte så skrik användaren eller nåt
+
     if (command === "tetto") {
-        message.channel.send("times")
+        let input = args[0]
+        
+        if (isNaN(input) && input != undefined) {
+            message.channel.send("Please use a number")
+        }
+
+        else {
+            let times = 0
+            if (input == undefined) {
+                times = 1;
+            }
+
+            else {
+                times = input
+            } 
+            for (let i = 0; i < times; i++) {
+                message.channel.send("tetto")
+            }
+        }
     }
 
     if (command === "help") {
