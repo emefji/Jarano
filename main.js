@@ -2,6 +2,9 @@ require('dotenv').config()
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
+const express = require("express")
+const app = express()
+
 const prefix = "!jao ";
 
 client.once("ready", () => {
@@ -18,9 +21,7 @@ client.on('message', message => {
     return;
 
     const args = message.content.slice(prefix.length).split(/ +/)
-    console.log("args: ", args)
     const command = args.shift().toLowerCase();
-    console.log("args (2): ", args)
     
     if (command === "ping") {
         message.channel.send("pong")
@@ -44,6 +45,12 @@ client.on('message', message => {
             else {
                 times = input
             } 
+            
+            if (times > 13) {
+                message.channel.send("To many messages (< 13)")
+                return;
+            }            
+            
             for (let i = 0; i < times; i++) {
                 message.channel.send("tetto")
             }
@@ -58,6 +65,14 @@ client.on('message', message => {
         message.channel.send("https://github.com/emefji/Jarano")
     }
     
+})
+
+app.get('/', (req, res) => {
+    res.send("Hejsan svejsan jarano yes")
+})
+
+app.listen(process.env.PORT, () => {
+    console.log(`Example app listening at http://localhost:${process.env.PORT}`)
 })
 
 //heroku yye
