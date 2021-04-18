@@ -1,6 +1,7 @@
 require('dotenv').config()
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const path = require("path")
 
 const express = require("express")
 const app = express()
@@ -67,13 +68,13 @@ client.on('message', message => {
     
 })
 
-app.get('/', (req, res) => {
-    res.send("Hejsan svejsan jarano yes")
+app.use(express.static(path.join(path.resolve(), "website/build")))
+app.get("*", (req, res) => {
+	res.sendFile(path.join(path.resolve() + "/website/build/index.html"))
 })
 
 app.listen(process.env.PORT, () => {
     console.log(`Example app listening at http://localhost:${process.env.PORT}`)
 })
 
-//heroku yye
 client.login(process.env.TOKEN)
