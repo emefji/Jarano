@@ -10,6 +10,7 @@ const prefix = "!jao ";
 
 client.once("ready", () => {
     console.log("Jarano is online!")
+    console.log("Web is running")
     client.user.setActivity("github.com", {type: "PLAYING", url:"https://github.com/emefji/Jarano"})
 })
 
