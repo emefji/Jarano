@@ -59,14 +59,6 @@ client.on('message', message => {
             }
         }
     }
-
-    if (command === "help") {
-        const json_objects = {
-            command1 = "´!jao help`",
-            command2 = "´!jao github`"
-        }
-    }
-
         for (let i; i < json_objects.length; i++) {
             message.channel.send(json_objects)
         }
