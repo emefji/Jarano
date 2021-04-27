@@ -4,6 +4,8 @@ import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 
+<title>Tset</title>
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
